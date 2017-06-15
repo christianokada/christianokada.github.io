@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   James Madison University 2018 // Computer Science Major
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: Christian_seiji
+twitter_username: Christian_Seiji
 github_username:  christianokada
 
 # Build settings
