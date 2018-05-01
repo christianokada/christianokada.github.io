@@ -1,23 +1,263 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<title>Christian Okada</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
 
-<div class="home">
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-  <h1 class="page-heading">Posts</h1>
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('musicbg.jpg');
+    min-height: 100%;
+}
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url('computerbg.jpg');
+    min-height: 400px;
+}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url('blueridge.jpg');
+    min-height: 400px;
+}
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
 
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+
+.manifesto {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+  </div>
 </div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Christian <span class="w3-hide-small">Seiji</span> Okada</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">Christian Okada</h3>
+  <p class="w3-center"><em>Software Engineer</em></p>
+  <p>I am currently a Software Engineer for Accenture Federal Services based out of Washington D.C.<br>
+    Recieved a bachelors degree in Computer Science for James Madison Univeristy (May 2018)<br>
+    Interests: AI and Machine Learning 
+  </p>
+  <p class="w3-center"><em>Musician</em></p>
+  <p>Drummer for Kick The Aquarium out of Harrisonburg, VA<br>
+    Guitarist/Lead Vocalist for Hotel November out of Washington D.C.<br>
+    Producer (Logic Pro X)
+  </p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Christian Okada</b></p><br>
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large">
+      <p>This website exists as a portfolio for CS480: Interaction Design</p>
+    </div>
+  </div>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">MY WORK</h3>
+  <p class="w3-center"><em>CS480 Portfolio<br><a href="https://medium.com/@christianokada/good-design-8d0f695b1c6f">Good Design</a> / <a href="https://medium.com/@christianokada/bad-design-d7213f9ca621">Bad Design</a></em></p><br>
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <img src="IMG_0001.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="JMU Bad Design">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="IMG_0002.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="JMU Good Design">
+    </div>
+  </div>
+
+  <p class="w3-center"><em><a href="https://medium.com/@christianokada/work-affinity-notes-405910322168">Work Affinity Notes</a></em></p><br>
+
+  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+      <img src="IMG_0006.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Work Affinity Notes">
+    </div>
+  </div>
+
+  <p class="w3-center"><em><a href="https://medium.com/@christianokada/data-analysis-1eae124e6500">Work Affinity Diagrams</a></em></p><br>
+
+  <div class="w3-row-padding w3-center w3-section">
+      <div class="w3-col m3">
+          <img src="IMG_0005.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Work Affinity Diagram I">
+        </div>
+
+        <div class="w3-col m3">
+            <img src="IMG_0007.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Work Affinity Diagram II">
+          </div>
+  </div>
+
+  <p class="w3-center"><em><a href="https://medium.com/@ali4mx/lo-fi-prototype-acbbacd911e7">Lo-Fi Clickable Prototype</a></em></p><br>
+
+  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+        <img src="IMG_0011.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lo-Fi Progress">
+      </div>
+
+    <div class="w3-col m3">
+      <img src="IMG_0012.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lo-Fi Events">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="IMG_0013.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lo-Fi Workouts">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="IMG_0014.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Lo-Fi Workouts">
+    </div>
+  </div>
+
+  <p class="w3-center"><em>Sketching</em></p><br>
+
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <img src="IMG_0004.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="10+10 Sketch">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="IMG_0010.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Scheduling Interface Sketch">
+    </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'" style="display: none;">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+<br>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide"><a href="https://medium.com/@christianokada/design-manifesto-49b93004ed8d">Design Manifesto</a></span>
+  </div>
+</div>
+<div class="manifesto">
+<p>Designing user interfaces is a very involved process. There are many different pieces and steps involved in creating a good usable interface and each one requires careful attention and care. For any process to be “good” it must be well thought out and planned in steps. In the case of designing interfaces, abstraction of a project is immensely important. Interface design is agile in nature. It involves low and high fidelity prototyping, each being flexible and well informed by user input. With each iteration of the process, there are many useful tools and strategies to help cultivate and and adjust ideas to improve a design.</p>
+<p>An important start to designing user interfaces begins with critical thinking of the needs of a group of users. This is a time to ask potential users about the potential uses of a product or service. In order to formulate a structure and purpose for an interface it is important to ask these four questions: What is feasible? What is practical? What is required? What is interesting and different? These questions help to trim the project into its purpose. This stage is a very high abstraction version of the project. The main purpose of this stage is to flesh out ideas and brainstorm new ones without having to do much work to see how it will integrate with the project as a whole. This stage is made possible by data gathering. Data gathering can take many forms such as interviews, observations, and surveys. In the case of my team’s project, we used observations as our main medium for data gathering. Observing involves paying careful attention to everything happening in an environment. This process also involves a very step oriented process. High abstraction notes are taken, then expanded on after a reflection of the observation is done. However the data is gathered, careful analysis is important in order to centralize user needs for an interface. The following is an example of observations done in UREC: <a href="https://medium.com/@christianokada/observations-1bce271959cb">https://medium.com/@christianokada/observations-1bce271959cb</a><br>This observation was done in the pool/sauna area inside UREC. This data we collected helped inform us of inform for the project, as well as different ideas for the project. We used critical thinking to turn this raw data into useable information that we used to direct the purpose of the product. In this case, We determined that the number of students using the pool and sauna was low and therefore we did not direct much of the UREC project toward that.</p>
+  <p>Another early step in the process is prototyping. Low-fidelity prototyping is a good way to test because mistakes made are not time-costly. It is important to not jump to designing a real prototype too fast because if large changes need to be made, it is much easier and more efficient to make those changes at a low-fidelity level. Similar to writing a paper, having an outline of the project guides how the final paper is written. This step moves the design lower in abstraction as ideas are put in physical form.</p>
+  <p>This is an example of a Lo-Fi prototyping for a clickable prototype:</p><figure><img width="384" height="512" src="https://cdn-images-1.medium.com/max/1024/1*F4zn9hXrYe2butGhT-1lhw.jpeg" /><figcaption>favorite workouts page</figcaption></figure><p>It is a simple sketch on notepaper, but it shows the idea in physical form. In this case, we were able to flesh out an idea of a layout for this favorite workouts page. Because it was a simple low-fidelity sketch, we tweaked this design until we reached our final production of the page. This is a helpful tool to both generate new ideas and refine old ones. Prototyping through sketching allowed the team to receive quick feedback with very little design effort. The team was able to receive interesting feedback from a user group and make changes based off of the input. Analysis is another key element to low-fidelity prototyping. Constant user focused design is needed while designing the prototypes. Analyzing what is important for the user should be the driving thought throughout the entire process. This step is very important before the project reaches production level or any high-fidelity design.</p>
+  <p>Thus far, we’ve discussed the beginning steps in designing good user interfaces. In the tech world, this process is very similar to the software development process. Agile development has dominated the way that we bring a product to production. The design process acts in a very agile way. Changes can be made as the project goes on. Making changes is easiest at a high abstraction level of the project but still possible as the project progresses into a high-fidelity project. Something I found helpful in my “agile” design was dissecting every piece of feedback on the project. Data gathering can provide a plethora of information that can be capitalized on with careful analyzation. Prototyping is a multiple iteration process. The cycle looks something like the following: lo-fi prototype, feedback, analyze, lo-fi prototype…etc. The number of iterations can differ from project to project. They key aspect of this process is analyzation. Requiring yourself to think about the data gathered can not only narrow the focus of the project, but also stimulate new ideas. For example, in our UREC app clickable prototype, we discovered many new ideas for what the users need from these iterations. We looked at capacity of the building and how many people were in the building at a time. Initially, we want to track numbers, such as 150 people in the building, then we moved to a percentage (building 30% full). After more feedback we discovered that users might want more simplicity and a simpler interface. From this information, we changed the interface to display empty, not busy, busy, or very busy. After this interface became this simpler format, thinking about this problem sparked the idea to predict the business of the building. This is an example of how feedback turns into analyzation and the project morphs into an idea of the final prototype.</p>
+  <p>Throughout the entire design cycle, there is need for constant evaluation. As project approach higher fidelity prototypes, it may become more difficult to implement changes. However, as user needs change, the product must change with it. Recall the four questions to ask ourselves about our designs: What is feasible? What is practical? What is required? What is interesting and different? These questions should be asked constantly to fit user needs and building something creative and interesting.</p><p>Feasibility testing is vital in the early stages of forming a plan. It can often be hard to determine what is feasible without actual building it, but it important to use prior knowledge and experiences to rule out possible directions or designs of the project. For instance, I wrote a concept statement about an idea that I had (<a href="https://medium.com/@christianokada/daisy-chain-pedal-system-b914025e21de">https://medium.com/@christianokada/daisy-chain-pedal-system-b914025e21de</a>). I took interest in this topic because I have experience with it. However, the design was just an idea and I was unsure if it is feasible to build. Sometimes we can design without knowing if something is feasible. However, if an idea is not feasible, then it will never make it to production. Determining feasibility takes a lot of experience and requires more questions. Is it possible to create? Do you have the man power to get it done? Will the project accomplish a useful task that users will actually use (in order to determine if a business model can be built around the product)?</p>
+  <p>I would argue that practicality may be the most important question asked. In the design world, simplicity can be the best option. As designers, we can become lost in projects and become disconnected with what users want, and what we want to make. Design can be cool, artistic, and intricate. However, in the realm of application design especially, users typically want something easy to use and understand. This means big buttons, big text, and a simple layout. What is the purpose of an application if the user doesn’t know how to use it? Another consideration of design is the flow that the user goes through throughout the entire design. The design should be intuitive; meaning the user should know what he or she should do to accomplish each task. There should be little to no difficulty in learning how to use an interface (or as best as possible). Design is about weaving the purpose and use of the application into an interface that can be simple to use, but have the power to do difficult things.</p>
+  <p>Requirements lists are the foundation of development. This involves taking some kind of user stories and cultivating and understanding of the needs. Asking “what is required?” narrows the project down to what the product built should be. Requirements become negotiable, but the majority of requirements should be features that are a necessity for the project. We created work affinity notes or user stories in order to determine requirements for the project (<a href="https://medium.com/@christianokada/data-analysis-1eae124e6500">https://medium.com/@christianokada/data-analysis-1eae124e6500</a>). We analyzed this data and categorized it into different parts. By combing similar stories, we found out what was important and what was irrelevant. We determined what features we may want to include and what audience to direct the project to. These features were about scheduling, social aspects, app features, interface design, privacy, or general information. Through the categorization, we could get an idea of where the project was headed and what was required for it.</p>
+  <p>The final question to ask is, “What is interesting and different?” The purpose of this question is to drive innovation and creativity. A big part of designing a good system is designing something cool and new. It is important to always keep the attention of the user by adding unique interfaces to a project. This can be the most exciting part of designing because it is open-ended and free, in a more artistic sort of way. A caveat to this point: In order to not contradict the idea of practicality, it is important to not become lost in interesting and different designs. The practicality of a product is still vital, but to keep users interested in a design, thinking outside the box is important. Our 10+10 project was a way to brainstorm new ideas for design.</p>
+  <p>Here is my 10+10 sketch that portrayed different was to connect two phones:</p><figure><img width="384" height="512" src="https://cdn-images-1.medium.com/max/1024/1*vfy_Z2YqfoMDOCKheIWrRw.jpeg" /><figcaption>10+10</figcaption></figure>
+    <p>The 10+10 idea of design involves creating 10 interesting solutions to a problem, choosing one, and creating 10 variations of that design. It is a great way to quickly sketch different ideas and come up with new interesting designs based off of the original design. I chose a 3rd party device to connect the two phones and created variations off that. Feasibility was not necessarily a thought; I do not believe it always required for initial basic designs. But 10+10 designing is a great way to flesh out all the different ideas in your head and force yourself to think outside the box to create new designs as well. The 10+10 design doesn’t guarantee a good interesting design, but many strategies like this can stimulate the creation of new ideas.</p>
+  <p>Designing interfaces requires the ability to take data received from potential users, and constantly implementing changes to an interface. This process is very agile in nature. As user needs change or develop, the interface needs to shift and make changes as well. Critical thinking, prototyping, and analyzing are key skills to cater designs toward the user. Flexibility of design is important in all stages of the design cycle. The main idea that I am trying to get across is that designing user interfaces is centered around the USER. It is easy to get lost in the world of design, but the simple idea of creating to satisfy user needs is an important part of designing good interfaces.</p>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  
+  <div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">Christian Okada</h3>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m2 w3-container">
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Washington DC<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (571) 527 9694<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: christian.okada@gmail.com
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <div class="w3-xlarge w3-section">
+    <a href="https://www.facebook.com/christian.okada.7"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/christianokada/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/Christian_Seiji"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/okadachristian/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </div>
+</footer>
+
+
+<script>
+  // Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
+
